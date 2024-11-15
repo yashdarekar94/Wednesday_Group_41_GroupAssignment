@@ -43,6 +43,22 @@ public class CustomerDirectory {
         }
             return null; //not found after going through the whole list
          }
+
+    public Business getBusiness() {
+        return business;
+    }
+
+    public void setBusiness(Business business) {
+        this.business = business;
+    }
+
+    public ArrayList<CustomerProfile> getCustomerlist() {
+        return customerlist;
+    }
+
+    public void setCustomerlist(ArrayList<CustomerProfile> customerlist) {
+        this.customerlist = customerlist;
+    }
         public CustomersReport generatCustomerPerformanceReport(){
         CustomersReport customersreport = new CustomersReport();
     

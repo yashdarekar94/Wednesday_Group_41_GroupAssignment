@@ -4,6 +4,14 @@
  */
 package ui.Marketing;
 
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.Business.Business;
+import model.ProductManagement.Product;
+import model.Supplier.Supplier;
+
 /**
  *
  * @author lenovo
@@ -13,8 +21,57 @@ public class MarketingWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form MarketingWorkAreaJPanel
      */
-    public MarketingWorkAreaJPanel() {
+    JPanel userProcessContainer;
+    Business business;
+    public MarketingWorkAreaJPanel(JPanel userProcessContainer, Business b) {
         initComponents();
+        this.business = b;
+        this.userProcessContainer = userProcessContainer;
+        populateCombo();
+        populateProductTable();
+    }
+    private void populateCombo() {
+        cmbSupplier.removeAllItems();
+        for (Supplier s: business.getSupplierDirectory().getSuplierList()){
+            cmbSupplier.addItem(s);
+        }
+    }
+    private void populateProductTable() {
+        Supplier selectedSupplier = (Supplier) cmbSupplier.getSelectedItem();
+        if (selectedSupplier == null){
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) tblProductCatalog.getModel();
+        model.setRowCount(0);
+
+        for (Product p : selectedSupplier.getProductCatalog().getProductList()) {
+            Object row[] = new Object[4];
+            row[0] = p;
+            row[1] = p.getFloorPrice();
+            row[2] = p.getTargetPrice();
+            row[3] = p.getCeilingPrice();
+            model.addRow(row);
+        }
+    }
+    private void populateProductTable(String keyword) {
+        Supplier selectedSupplier = (Supplier) cmbSupplier.getSelectedItem();
+        if (selectedSupplier == null){
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) tblProductCatalog.getModel();
+        model.setRowCount(0);
+//        for (Supplier s : supplierDirectory.getSupplierlist()){
+            for (Product p : selectedSupplier.getProductCatalog().getProductList()) {
+                if (p.toString().equalsIgnoreCase(keyword)){
+        
+                Object row[] = new Object[4];
+            row[0] = p;
+            row[1] = p.getFloorPrice();
+            row[2] = p.getTargetPrice();
+            row[3] = p.getCeilingPrice();
+            model.addRow(row);
+        }
+        }
     }
 
     /**
@@ -26,19 +83,190 @@ public class MarketingWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jPanel1 = new javax.swing.JPanel();
+        btnLogout = new javax.swing.JToggleButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        btnProductDetails = new javax.swing.JButton();
+        lblSupplier = new javax.swing.JLabel();
+        cmbSupplier = new javax.swing.JComboBox();
+        txtSearch = new javax.swing.JTextField();
+        btnSearchProduct = new javax.swing.JButton();
+        lblProductCatalogue = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblProductCatalog = new javax.swing.JTable();
+
+        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(400, 50));
+
+        btnLogout.setText("Log out ");
+
+        jLabel1.setText("Welcome to the dashboard");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(219, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(158, 158, 158)
+                .addComponent(btnLogout)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(btnLogout))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
+        jSplitPane1.setTopComponent(jPanel1);
+
+        btnProductDetails.setText("View Product Details");
+        btnProductDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductDetailsActionPerformed(evt);
+            }
+        });
+
+        lblSupplier.setText("Supplier:");
+
+        cmbSupplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSupplierActionPerformed(evt);
+            }
+        });
+
+        btnSearchProduct.setText("Search Product");
+        btnSearchProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchProductActionPerformed(evt);
+            }
+        });
+
+        lblProductCatalogue.setText("Product Catalog:");
+
+        tblProductCatalog.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
+        tblProductCatalog.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Name", "Product Id", "Price", "Avail"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblProductCatalog);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblProductCatalogue)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSearchProduct))
+                    .addComponent(btnProductDetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblProductCatalogue)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnProductDetails)
+                .addGap(30, 30, 30))
+        );
+
+        jSplitPane1.setRightComponent(jPanel2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnProductDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductDetailsActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblProductCatalog.getSelectedRow();
+
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(this, "please select an item first");
+            return;
+        }
+        Product product = (Product) tblProductCatalog.getValueAt(selectedRow, 0);
+        ViewProductDetailJPanel vpdp = new ViewProductDetailJPanel(userProcessContainer, product);
+        userProcessContainer.add("ViewProductDetailJPanel", vpdp);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
+    }//GEN-LAST:event_btnProductDetailsActionPerformed
+
+    private void cmbSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSupplierActionPerformed
+        // TODO add your handling code here:
+        populateProductTable();
+    }//GEN-LAST:event_cmbSupplierActionPerformed
+
+    private void btnSearchProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchProductActionPerformed
+        String productName = txtSearch.getText();
+        populateProductTable(productName);
+
+    }//GEN-LAST:event_btnSearchProductActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnLogout;
+    private javax.swing.JButton btnProductDetails;
+    private javax.swing.JButton btnSearchProduct;
+    private javax.swing.JComboBox cmbSupplier;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JLabel lblProductCatalogue;
+    private javax.swing.JLabel lblSupplier;
+    private javax.swing.JTable tblProductCatalog;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

@@ -33,10 +33,7 @@ public class MarketingWorkAreaJPanel extends javax.swing.JPanel {
         lblHeading.setText("Welcome " + this.user.getPersonId());
         populateCombo();
         populateProductTable();
-        lblProductSelected.setText("Please select product to show intelligence");
-        lblPriceToPerformance.setText("");
-        lblSalesAboveTarget.setText("");
-        lblSalesBelowTarget.setText("");
+        
     }
     private void populateCombo() {
         cmbSupplier.removeAllItems();
@@ -44,7 +41,11 @@ public class MarketingWorkAreaJPanel extends javax.swing.JPanel {
             cmbSupplier.addItem(s);
         }
     }
-    private void populateProductTable() {
+    public void populateProductTable() {
+        lblProductSelected.setText("Please select product to show intelligence");
+        lblPriceToPerformance.setText("");
+        lblSalesAboveTarget.setText("");
+        lblSalesBelowTarget.setText("");
         Supplier selectedSupplier = (Supplier) cmbSupplier.getSelectedItem();
         if (selectedSupplier == null){
             return;
@@ -314,7 +315,7 @@ public class MarketingWorkAreaJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

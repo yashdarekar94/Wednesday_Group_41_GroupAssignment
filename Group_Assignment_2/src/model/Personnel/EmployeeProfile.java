@@ -10,17 +10,16 @@ package model.Personnel;
  * @author kal bugrara
  */
 public class EmployeeProfile extends Profile {
+    String role;
 
 
-
-    public EmployeeProfile(Person p) {
-
+    public EmployeeProfile(Person p, String role) {
         super(p); 
-
+        this.role = role;
     }
     @Override
     public String getRole(){
-        return  "Admin";
+        return  this.role;
     }
 
 }

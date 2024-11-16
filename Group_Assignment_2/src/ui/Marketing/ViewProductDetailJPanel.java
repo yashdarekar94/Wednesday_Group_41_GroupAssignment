@@ -98,6 +98,7 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
         lblTargetSalesRevenueBefore = new javax.swing.JLabel();
         lblTargetSalesRevenueAfter = new javax.swing.JLabel();
         btnRevert = new javax.swing.JButton();
+        btnAutomatedSimulate = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(47, 73, 97));
         setPreferredSize(new java.awt.Dimension(650, 600));
@@ -140,7 +141,7 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
         txtCeliPrice.setForeground(new java.awt.Color(255, 255, 255));
 
         btnSave.setBackground(new java.awt.Color(123, 192, 255));
-        btnSave.setText("Save & Simulate");
+        btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -251,11 +252,11 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
         BusinessIntelligenceJPanelLayout.setVerticalGroup(
             BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BusinessIntelligenceJPanelLayout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblBusinessIntelligence)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BusinessIntelligenceJPanelLayout.createSequentialGroup()
                         .addGroup(BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -284,7 +285,7 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
                             .addComponent(lblSalesBelowTargetAfter)
                             .addComponent(lblSalesBelowTargetBefore)))
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 28, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         btnRevert.setBackground(new java.awt.Color(123, 192, 255));
@@ -295,14 +296,18 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAutomatedSimulate.setBackground(new java.awt.Color(123, 192, 255));
+        btnAutomatedSimulate.setText("Auto Simulate");
+        btnAutomatedSimulate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAutomatedSimulateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BusinessIntelligenceJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -317,20 +322,28 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
                     .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCeliPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(backButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(backButton1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSave)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRevert)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAutomatedSimulate)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSave)
-                .addGap(18, 18, 18)
-                .addComponent(btnRevert)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE)
+                .addComponent(BusinessIntelligenceJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 31, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCeliPrice, txtFloorPrice, txtPrice, txtProdName});
@@ -361,10 +374,11 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
-                    .addComponent(btnRevert))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                    .addComponent(btnRevert)
+                    .addComponent(btnAutomatedSimulate))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(BusinessIntelligenceJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -420,11 +434,40 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
         refresh();
         refreshAfter(false);
     }//GEN-LAST:event_btnRevertActionPerformed
+
+    private void btnAutomatedSimulateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutomatedSimulateActionPerformed
+        int previousPricePerformance = product.getOrderPricePerformance();
+        this.revertFloor = product.getFloorPrice();
+        this.revertTarget = product.getTargetPrice();
+        this.revertCeli = product.getCeilingPrice();
+        int bestTarget = this.revertTarget;
+        if (previousPricePerformance > 0){
+            product.updateProduct(this.revertFloor, this.revertCeli, bestTarget + 1);
+            int currentPricePerformance = product.getOrderPricePerformance();
+            while(currentPricePerformance >= 0 && bestTarget < this.revertCeli){
+                bestTarget += 1;
+                product.updateProduct(this.revertFloor, this.revertCeli, bestTarget + 1);
+                currentPricePerformance = product.getOrderPricePerformance();
+            }
+        } else {
+            product.updateProduct(this.revertFloor, this.revertCeli, bestTarget - 1);
+            int currentPricePerformance = product.getOrderPricePerformance();
+            while(currentPricePerformance < 50 && bestTarget > this.revertFloor){
+                bestTarget -= 1;
+                product.updateProduct(this.revertFloor, this.revertCeli, bestTarget - 1);
+                currentPricePerformance = product.getOrderPricePerformance();
+            }
+        }
+        product.updateProduct(this.revertFloor, this.revertCeli, bestTarget);
+        txtPrice.setText(String.valueOf(bestTarget));
+        refreshAfter(true);
+    }//GEN-LAST:event_btnAutomatedSimulateActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BusinessIntelligenceJPanel;
     private javax.swing.JButton backButton1;
+    private javax.swing.JButton btnAutomatedSimulate;
     private javax.swing.JButton btnRevert;
     private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel1;

@@ -49,81 +49,81 @@ public class ConfigureABusiness {
     ProductCatalog prodCatalog1 = supplier1.getProductCatalog();
     // Creating products and adding it in product catalog
     // Supplier 1
-    Product supp1Prod1 = prodCatalog1.newProduct("Laptop", 100, 200, 150);
-    Product supp1Prod2 = prodCatalog1.newProduct("Smartphone", 150, 200, 175);
-    Product supp1Prod3 = prodCatalog1.newProduct("Tablet", 200, 250, 230);
-    Product supp1Prod4 = prodCatalog1.newProduct("Headphones", 145, 200, 158);
-    Product supp1Prod5 = prodCatalog1.newProduct("Monitor", 200, 300, 240);
-    Product supp1Prod6 = prodCatalog1.newProduct("Keyboard", 100, 300, 210);
-    Product supp1Prod7 = prodCatalog1.newProduct("Mouse", 70, 150, 110);
-    Product supp1Prod8 = prodCatalog1.newProduct("Printer", 45, 100, 60);
-    Product supp1Prod9 = prodCatalog1.newProduct("Camera", 400, 700, 650);
-    Product supp1Prod10 = prodCatalog1.newProduct("Smartwatch", 600, 900, 750);
+    Product supp1Prod1 = prodCatalog1.newProduct("Printer 110", 100, 200, 150);
+    Product supp1Prod2 = prodCatalog1.newProduct("Printer 120", 150, 200, 175);
+    Product supp1Prod3 = prodCatalog1.newProduct("Printer 150", 200, 250, 230);
+    Product supp1Prod4 = prodCatalog1.newProduct("Printer 15", 145, 200, 158);
+    Product supp1Prod5 = prodCatalog1.newProduct("Printer 18", 200, 300, 240);
+    Product supp1Prod6 = prodCatalog1.newProduct("Printer 156", 100, 300, 210);
+    Product supp1Prod7 = prodCatalog1.newProduct("Printer 186", 70, 150, 110);
+    Product supp1Prod8 = prodCatalog1.newProduct("Printer 1", 45, 100, 60);
+    Product supp1Prod9 = prodCatalog1.newProduct("Printer 199", 400, 700, 650);
+    Product supp1Prod10 = prodCatalog1.newProduct("Printer 17", 600, 900, 750);
 
     // Supplier 2
     ProductCatalog prodCatalog2 = supplier2.getProductCatalog();
-    Product supp2Prod1 = prodCatalog2.newProduct("Laptop", 100, 200, 150);
-    Product supp2Prod2 = prodCatalog2.newProduct("Smartphone", 150, 200, 175);
-    Product supp2Prod3 = prodCatalog2.newProduct("Tablet", 200, 250, 230);
-    Product supp2Prod4 = prodCatalog2.newProduct("Headphones", 145, 200, 158);
-    Product supp2Prod5 = prodCatalog2.newProduct("Monitor", 200, 300, 240);
-    Product supp2Prod6 = prodCatalog2.newProduct("Keyboard", 100, 300, 210);
-    Product supp2Prod7 = prodCatalog2.newProduct("Mouse", 70, 150, 110);
-    Product supp2Prod8 = prodCatalog2.newProduct("Printer", 45, 100, 60);
-    Product supp2Prod9 = prodCatalog2.newProduct("Camera", 400, 700, 650);
-    Product supp2Prod10 = prodCatalog2.newProduct("Smartwatch", 600, 900, 750);
+    Product supp2Prod1 = prodCatalog2.newProduct("Scanner 12", 100, 300, 200);
+    Product supp2Prod2 = prodCatalog2.newProduct("Scanner 125", 190, 290, 210);
+    Product supp2Prod3 = prodCatalog2.newProduct("Scanner 128", 150, 250, 200);
+    Product supp2Prod4 = prodCatalog2.newProduct("Scanner 127", 154, 200, 168);
+    Product supp2Prod5 = prodCatalog2.newProduct("Scanner 110", 210, 310, 250);
+    Product supp2Prod6 = prodCatalog2.newProduct("Scanner 15", 150, 300, 210);
+    Product supp2Prod7 = prodCatalog2.newProduct("Scanner 1210", 90, 150, 100);
+    Product supp2Prod8 = prodCatalog2.newProduct("Scanner 1289", 145, 190, 150);
+    Product supp2Prod9 = prodCatalog2.newProduct("Scanner 1274", 410, 750, 660);
+    Product supp2Prod10 = prodCatalog2.newProduct("Scanner 1256", 650, 950, 760);
 
     // Supplier 3
     ProductCatalog prodCatalog3 = supplier3.getProductCatalog();
-    Product supp3Prod1 = prodCatalog3.newProduct("Laptop", 100, 200, 150);
-    Product supp3Prod2 = prodCatalog3.newProduct("Smartphone", 150, 200, 175);
-    Product supp3Prod3 = prodCatalog3.newProduct("Tablet", 200, 250, 230);
-    Product supp3Prod4 = prodCatalog3.newProduct("Headphones", 145, 200, 158);
-    Product supp3Prod5 = prodCatalog3.newProduct("Monitor", 200, 300, 240);
-    Product supp3Prod6 = prodCatalog3.newProduct("Keyboard", 100, 300, 210);
-    Product supp3Prod7 = prodCatalog3.newProduct("Mouse", 70, 150, 110);
-    Product supp3Prod8 = prodCatalog3.newProduct("Printer", 45, 100, 60);
-    Product supp3Prod9 = prodCatalog3.newProduct("Camera", 400, 700, 650);
-    Product supp3Prod10 = prodCatalog3.newProduct("Smartwatch", 600, 900, 750);
+    Product supp3Prod1 = prodCatalog3.newProduct("Photocopy 42", 100, 200, 150);
+    Product supp3Prod2 = prodCatalog3.newProduct("Photocopy 425", 150, 200, 175);
+    Product supp3Prod3 = prodCatalog3.newProduct("Photocopy 4287", 200, 250, 230);
+    Product supp3Prod4 = prodCatalog3.newProduct("Photocopy 4245", 145, 200, 158);
+    Product supp3Prod5 = prodCatalog3.newProduct("Photocopy 4282", 200, 300, 240);
+    Product supp3Prod6 = prodCatalog3.newProduct("Photocopy 4289", 100, 300, 210);
+    Product supp3Prod7 = prodCatalog3.newProduct("Photocopy 421", 70, 150, 110);
+    Product supp3Prod8 = prodCatalog3.newProduct("Photocopy 422", 45, 100, 60);
+    Product supp3Prod9 = prodCatalog3.newProduct("Photocopy 4200", 400, 700, 650);
+    Product supp3Prod10 = prodCatalog3.newProduct("Photocopy 4", 600, 900, 750);
 
     // Supplier 4
     ProductCatalog prodCatalog4 = supplier4.getProductCatalog();
-    Product supp4Prod1 = prodCatalog4.newProduct("Laptop", 100, 200, 150);
-    Product supp4Prod2 = prodCatalog4.newProduct("Smartphone", 150, 200, 175);
-    Product supp4Prod3 = prodCatalog4.newProduct("Tablet", 200, 250, 230);
-    Product supp4Prod4 = prodCatalog4.newProduct("Headphones", 145, 200, 158);
-    Product supp4Prod5 = prodCatalog4.newProduct("Monitor", 200, 300, 240);
-    Product supp4Prod6 = prodCatalog4.newProduct("Keyboard", 100, 300, 210);
-    Product supp4Prod7 = prodCatalog4.newProduct("Mouse", 70, 150, 110);
-    Product supp4Prod8 = prodCatalog4.newProduct("Printer", 45, 100, 60);
-    Product supp4Prod9 = prodCatalog4.newProduct("Camera", 400, 700, 650);
-    Product supp4Prod10 = prodCatalog4.newProduct("Smartwatch", 600, 900, 750);
+    Product supp4Prod1 = prodCatalog4.newProduct("Printer ColorPix52", 500, 900, 650);
+    Product supp4Prod2 = prodCatalog4.newProduct("Printer ColorPix525", 550, 950, 775);
+    Product supp4Prod3 = prodCatalog4.newProduct("Printer ColorPix528", 600, 950, 730);
+    Product supp4Prod4 = prodCatalog4.newProduct("Printer ColorPix5252", 445, 800, 658);
+    Product supp4Prod5 = prodCatalog4.newProduct("Printer ColorPix5281", 700, 1000, 840);
+    Product supp4Prod6 = prodCatalog4.newProduct("Printer ColorPix5282", 800, 1300, 1000);
+    Product supp4Prod7 = prodCatalog4.newProduct("Printer ColorPix5210", 570, 950, 710);
+    Product supp4Prod8 = prodCatalog4.newProduct("Printer ColorPix5287", 445, 700, 660);
+    Product supp4Prod9 = prodCatalog4.newProduct("Printer ColorPix10", 300, 700, 650);
+    Product supp4Prod10 = prodCatalog4.newProduct("Printer ColorPix5277", 700, 900, 800);
 
     // Supplier 5
     ProductCatalog prodCatalog5 = supplier5.getProductCatalog();
-    Product supp5Prod1 = prodCatalog5.newProduct("Laptop", 100, 200, 150);
-    Product supp5Prod2 = prodCatalog5.newProduct("Smartphone", 150, 200, 175);
-    Product supp5Prod3 = prodCatalog5.newProduct("Tablet", 200, 250, 230);
-    Product supp5Prod4 = prodCatalog5.newProduct("Headphones", 145, 200, 158);
-    Product supp5Prod5 = prodCatalog5.newProduct("Monitor", 200, 300, 240);
-    Product supp5Prod6 = prodCatalog5.newProduct("Keyboard", 100, 300, 210);
-    Product supp5Prod7 = prodCatalog5.newProduct("Mouse", 70, 150, 110);
-    Product supp5Prod8 = prodCatalog5.newProduct("Printer", 45, 100, 60);
-    Product supp5Prod9 = prodCatalog5.newProduct("Camera", 400, 700, 650);
-    Product supp5Prod10 = prodCatalog5.newProduct("Smartwatch", 600, 900, 750);
+    Product supp5Prod1 = prodCatalog5.newProduct("Printer All in one 12", 1000, 2000, 1500);
+    Product supp5Prod2 = prodCatalog5.newProduct("Printer All in one 122", 1500, 2000, 1750);
+    Product supp5Prod3 = prodCatalog5.newProduct("Printer All in one 128", 2000, 2500, 2300);
+    Product supp5Prod4 = prodCatalog5.newProduct("Printer All in one 1285", 1450, 2000, 1580);
+    Product supp5Prod5 = prodCatalog5.newProduct("Printer All in one 1210", 2000, 3000, 2400);
+    Product supp5Prod6 = prodCatalog5.newProduct("Printer All in one 1277", 1000, 3000, 2100);
+    Product supp5Prod7 = prodCatalog5.newProduct("Printer All in one 110", 700, 1500, 1100);
+    Product supp5Prod8 = prodCatalog5.newProduct("Printer All in one 120", 450, 1000, 600);
+    Product supp5Prod9 = prodCatalog5.newProduct("Printer All in one 50", 4000, 7000, 6500);
+    Product supp5Prod10 = prodCatalog5.newProduct("Printer All in one 1202", 6000, 9000, 7500);
 
     // Supplier 6
     ProductCatalog prodCatalog6 = supplier6.getProductCatalog();
-    Product supp6Prod1 = prodCatalog6.newProduct("Laptop", 100, 200, 150);
-    Product supp6Prod2 = prodCatalog6.newProduct("Smartphone", 150, 200, 175);
-    Product supp6Prod3 = prodCatalog6.newProduct("Tablet", 200, 250, 230);
-    Product supp6Prod4 = prodCatalog6.newProduct("Headphones", 145, 200, 158);
-    Product supp6Prod5 = prodCatalog6.newProduct("Monitor", 200, 300, 240);
-    Product supp6Prod6 = prodCatalog6.newProduct("Keyboard", 100, 300, 210);
-    Product supp6Prod7 = prodCatalog6.newProduct("Mouse", 70, 150, 110);
-    Product supp6Prod8 = prodCatalog6.newProduct("Printer", 45, 100, 60);
-    Product supp6Prod9 = prodCatalog6.newProduct("Camera", 400, 700, 650);
-    Product supp6Prod10 = prodCatalog6.newProduct("Smartwatch", 600, 900, 750);
+    Product supp6Prod1 = prodCatalog6.newProduct("Scanner152", 100, 200, 150);
+    Product supp6Prod2 = prodCatalog6.newProduct("Scanner151", 150, 200, 175);
+    Product supp6Prod3 = prodCatalog6.newProduct("Scanner1522", 200, 250, 230);
+    Product supp6Prod4 = prodCatalog6.newProduct("Scanner1528", 145, 200, 158);
+    Product supp6Prod5 = prodCatalog6.newProduct("Scanner1529", 200, 300, 240);
+    Product supp6Prod6 = prodCatalog6.newProduct("Scanner142", 100, 300, 210);
+    Product supp6Prod7 = prodCatalog6.newProduct("Scanner1426", 70, 150, 110);
+    Product supp6Prod8 = prodCatalog6.newProduct("Scanner1485", 45, 100, 60);
+    Product supp6Prod9 = prodCatalog6.newProduct("Scanner1427", 400, 700, 650);
+    Product supp6Prod10 = prodCatalog6.newProduct("Scanner1429", 600, 900, 750);
     // Getting person directory
     PersonDirectory personDir = business.getPersonDirectory();
     // Creating and adding persons to the person directory

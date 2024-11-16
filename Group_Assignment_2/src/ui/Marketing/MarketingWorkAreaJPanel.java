@@ -161,7 +161,7 @@ public class MarketingWorkAreaJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Name", "Product Id", "Price", "Avail"
+                "Name", "Floor Price", "Target Price", "Ceil Price"
             }
         ) {
             boolean[] canEdit = new boolean [] {

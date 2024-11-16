@@ -9,6 +9,7 @@ package ui.Marketing;
 import model.ProductManagement.ProductSummary;
 import model.ProductManagement.Product;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
 /**
  *
@@ -18,16 +19,30 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
     Product product;
-    
+    int revertFloor;
+    int revertTarget;
+    int revertCeli;
     /** Creates new form CreateProductJPanel */
     public ViewProductDetailJPanel(JPanel userProcessContainer, Product product) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.product = product;
+        this.revertFloor = product.getFloorPrice();
+        this.revertTarget = product.getTargetPrice();
+        this.revertCeli = product.getCeilingPrice();
         txtProdName.setText(product.toString());
-        idFloorPrice.setText(String.valueOf(product.getFloorPrice()));
+        txtFloorPrice.setText(String.valueOf(product.getFloorPrice()));
         txtPrice.setText(String.valueOf(product.getTargetPrice()));
         txtCeliPrice.setText(String.valueOf(product.getCeilingPrice()));
+        refresh();
+    }
+    
+    
+    private void refresh(){
+        lblProductSelected.setText("Product selected : " + product);
+        lblPriceToPerformance.setText("Price to performance : " + String.valueOf(product.getOrderPricePerformance()));
+        lblSalesAboveTarget.setText("Number of sales above target : " + String.valueOf(product.getNumberOfProductSalesAboveTarget()));
+        lblSalesBelowTarget.setText("Number of sales below target : " + String.valueOf(product.getNumberOfProductSalesBelowTarget()));
     }
     
     /** This method is called from within the constructor to
@@ -44,11 +59,19 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         txtPrice = new javax.swing.JTextField();
         backButton1 = new javax.swing.JButton();
-        idFloorPrice = new javax.swing.JTextField();
+        txtFloorPrice = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtCeliPrice = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
+        BusinessIntelligenceJPanel = new javax.swing.JPanel();
+        lblBusinessIntelligence = new javax.swing.JLabel();
+        lblProductSelected = new javax.swing.JLabel();
+        lblSalesBelowTarget = new javax.swing.JLabel();
+        lblSalesAboveTarget = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        lblPriceToPerformance = new javax.swing.JLabel();
+        btnRevert = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(650, 600));
 
@@ -58,11 +81,7 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Product Name:");
 
-        txtProdName.setEditable(false);
-
         jLabel3.setText("Target Price:");
-
-        txtPrice.setEditable(false);
 
         backButton1.setText("<< Back");
         backButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,18 +90,83 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
             }
         });
 
-        idFloorPrice.setEditable(false);
-
         jLabel5.setText("Floor Price");
 
         jLabel6.setText("Ceil Price:");
 
-        txtCeliPrice.setEditable(false);
-
-        btnSave.setText("Save");
+        btnSave.setText("Save & Simulate");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
+            }
+        });
+
+        BusinessIntelligenceJPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BusinessIntelligenceJPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BusinessIntelligenceJPanelMouseClicked(evt);
+            }
+        });
+
+        lblBusinessIntelligence.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblBusinessIntelligence.setText("Business Intelligence");
+
+        lblProductSelected.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblProductSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblProductSelected.setText("Product selected :");
+
+        lblSalesBelowTarget.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblSalesBelowTarget.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSalesBelowTarget.setText("Number of sales below target :");
+
+        lblSalesAboveTarget.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblSalesAboveTarget.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSalesAboveTarget.setText("Number of sales above target :");
+
+        lblPriceToPerformance.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblPriceToPerformance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPriceToPerformance.setText("Price to performance :");
+
+        javax.swing.GroupLayout BusinessIntelligenceJPanelLayout = new javax.swing.GroupLayout(BusinessIntelligenceJPanel);
+        BusinessIntelligenceJPanel.setLayout(BusinessIntelligenceJPanelLayout);
+        BusinessIntelligenceJPanelLayout.setHorizontalGroup(
+            BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
+            .addGroup(BusinessIntelligenceJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblBusinessIntelligence)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BusinessIntelligenceJPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSalesBelowTarget)
+                    .addComponent(lblSalesAboveTarget)
+                    .addComponent(lblPriceToPerformance)
+                    .addComponent(lblProductSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        BusinessIntelligenceJPanelLayout.setVerticalGroup(
+            BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BusinessIntelligenceJPanelLayout.createSequentialGroup()
+                .addContainerGap(49, Short.MAX_VALUE)
+                .addComponent(lblBusinessIntelligence)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 39, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(lblProductSelected)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblPriceToPerformance)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblSalesAboveTarget)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblSalesBelowTarget)
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+
+        btnRevert.setText("Revert");
+        btnRevert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRevertActionPerformed(evt);
             }
         });
 
@@ -93,15 +177,11 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(backButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(217, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnSave)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(219, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -110,13 +190,23 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtProdName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idFloorPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFloorPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCeliPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BusinessIntelligenceJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSave)
+                .addGap(18, 18, 18)
+                .addComponent(btnRevert)
+                .addGap(175, 175, 175))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {idFloorPrice, txtCeliPrice, txtPrice, txtProdName});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCeliPrice, txtFloorPrice, txtPrice, txtProdName});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,7 +221,7 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idFloorPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFloorPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -141,34 +231,69 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCeliPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSave)
+                    .addComponent(btnRevert))
                 .addGap(24, 24, 24)
-                .addComponent(btnSave)
-                .addContainerGap(346, Short.MAX_VALUE))
+                .addComponent(BusinessIntelligenceJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton1ActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        MarketingWorkAreaJPanel mwajp = (MarketingWorkAreaJPanel) component;
+        mwajp.populateProductTable();
+        
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backButton1ActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+        
+        product.setName(txtProdName.getText());
+        product.updateProduct(Integer.parseInt(txtFloorPrice.getText()), Integer.parseInt(txtCeliPrice.getText()), Integer.parseInt(txtPrice.getText()));
+        refresh();
+        
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void BusinessIntelligenceJPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BusinessIntelligenceJPanelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BusinessIntelligenceJPanelMouseClicked
+
+    private void btnRevertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRevertActionPerformed
+        // TODO add your handling code here:
+        txtFloorPrice.setText(String.valueOf(this.revertFloor));
+        txtPrice.setText(String.valueOf(this.revertTarget));
+        txtCeliPrice.setText(String.valueOf(this.revertCeli));
+        product.updateProduct(this.revertFloor, this.revertCeli, this.revertTarget);
+        refresh();
+    }//GEN-LAST:event_btnRevertActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BusinessIntelligenceJPanel;
     private javax.swing.JButton backButton1;
+    private javax.swing.JButton btnRevert;
     private javax.swing.JButton btnSave;
-    private javax.swing.JTextField idFloorPrice;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblBusinessIntelligence;
+    private javax.swing.JLabel lblPriceToPerformance;
+    private javax.swing.JLabel lblProductSelected;
+    private javax.swing.JLabel lblSalesAboveTarget;
+    private javax.swing.JLabel lblSalesBelowTarget;
     private javax.swing.JTextField txtCeliPrice;
+    private javax.swing.JTextField txtFloorPrice;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtProdName;
     // End of variables declaration//GEN-END:variables

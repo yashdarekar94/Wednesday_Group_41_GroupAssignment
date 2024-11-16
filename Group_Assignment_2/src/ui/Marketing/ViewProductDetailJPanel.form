@@ -29,7 +29,7 @@
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace pref="219" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -43,7 +43,7 @@
                   <Component id="txtPrice" linkSize="1" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
                   <Component id="txtCeliPrice" linkSize="1" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="181" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
@@ -174,34 +174,82 @@
                   <Component id="lblBusinessIntelligence" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace pref="19" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblSalesBelowTarget" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblSalesAboveTarget" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblPriceToPerformance" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblProductSelected" alignment="0" min="-2" pref="471" max="-2" attributes="0"/>
+                      <Component id="lblBefore" linkSize="3" alignment="0" min="-2" pref="301" max="-2" attributes="0"/>
+                      <Component id="lblActualSalesRevenueBefore" linkSize="2" alignment="0" min="-2" pref="301" max="-2" attributes="0"/>
+                      <Component id="lblTargetSalesRevenueBefore" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSalesAboveTargetBefore" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSalesBelowTargetBefore" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblPriceToPerformanceBefore" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <Component id="jSeparator2" min="-2" pref="20" max="-2" attributes="0"/>
+                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblAfter" linkSize="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblActualSalesRevenueAfter" linkSize="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTargetSalesRevenueAfter" linkSize="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblPriceToPerformanceAfter" linkSize="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSalesBelowTargetAfter" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSalesAboveTargetAfter" linkSize="2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="49" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="lblBusinessIntelligence" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" pref="39" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-                  <EmptySpace pref="43" max="32767" attributes="0"/>
-                  <Component id="lblProductSelected" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="lblPriceToPerformance" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="lblSalesAboveTarget" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="lblSalesBelowTarget" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="41" max="32767" attributes="0"/>
+                  <EmptySpace pref="73" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblBefore" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblAfter" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblActualSalesRevenueBefore" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblActualSalesRevenueAfter" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblTargetSalesRevenueBefore" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTargetSalesRevenueAfter" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="lblPriceToPerformanceAfter" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="lblSalesAboveTargetAfter" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblPriceToPerformanceBefore" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="lblSalesAboveTargetBefore" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="lblSalesBelowTargetAfter" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="lblSalesBelowTargetBefore" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Component id="jSeparator2" min="-2" pref="186" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="0" pref="55" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -212,19 +260,19 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="2"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Business Intelligence"/>
+            <Property name="text" type="java.lang.String" value="Product Performance Report"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblProductSelected">
+        <Component class="javax.swing.JLabel" name="lblActualSalesRevenueBefore">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="2"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Product selected :"/>
+            <Property name="text" type="java.lang.String" value="Sales Revenue (Actual Price) :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblSalesBelowTarget">
+        <Component class="javax.swing.JLabel" name="lblSalesBelowTargetBefore">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="2"/>
@@ -233,7 +281,7 @@
             <Property name="text" type="java.lang.String" value="Number of sales below target :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblSalesAboveTarget">
+        <Component class="javax.swing.JLabel" name="lblSalesAboveTargetBefore">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="2"/>
@@ -244,13 +292,90 @@
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
         </Component>
-        <Component class="javax.swing.JLabel" name="lblPriceToPerformance">
+        <Component class="javax.swing.JLabel" name="lblPriceToPerformanceBefore">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="2"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Price to performance :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSeparator" name="jSeparator2">
+          <Properties>
+            <Property name="orientation" type="int" value="1"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblActualSalesRevenueAfter">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="2"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Sales Revenue (Actual Price) :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblPriceToPerformanceAfter">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="2"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Price to performance :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblSalesAboveTargetAfter">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="2"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Number of sales above target :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblSalesBelowTargetAfter">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="2"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Number of sales below target :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblBefore">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="2"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Before"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblAfter">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="2"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="After"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTargetSalesRevenueBefore">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="2"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Sales Revenue (Target Price) :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTargetSalesRevenueAfter">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="2"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Sales Revenue (Target Price) :"/>
           </Properties>
         </Component>
       </SubComponents>

@@ -5,6 +5,7 @@
 package ui;
 
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Business.Business;
 import model.UserAccountManagement.UserAccount;
@@ -104,6 +105,10 @@ public class LoginScreenJPanel extends javax.swing.JPanel {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String userName = txtUserName.getText();
+        if(userName.isBlank()) {
+            JOptionPane.showMessageDialog(this, "Username cannot be blank", "Warning", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         char[] password = txtPassword.getPassword();
         String passwordString = new String(password);
         UserAccount user = business.getUserAccountDirectory().AuthenticateUser(userName, passwordString);
@@ -113,11 +118,15 @@ public class LoginScreenJPanel extends javax.swing.JPanel {
         }
         if (user != null){
             if (user.getRole().equalsIgnoreCase("Marketing")){
-                MarketingWorkAreaJPanel majp = new MarketingWorkAreaJPanel(mainWorkArea, business);
+                MarketingWorkAreaJPanel majp = new MarketingWorkAreaJPanel(mainWorkArea, business, user);
                 mainWorkArea.add("MarketingWorkAreaJPanel", majp);
                 CardLayout layout = (CardLayout) mainWorkArea.getLayout();
                 layout.next(mainWorkArea);
+                txtUserName.setText("");
             }
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid user or password", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 

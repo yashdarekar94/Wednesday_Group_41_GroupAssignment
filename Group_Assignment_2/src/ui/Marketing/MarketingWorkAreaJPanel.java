@@ -5,30 +5,38 @@
 package ui.Marketing;
 
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.Business.Business;
 import model.ProductManagement.Product;
 import model.Supplier.Supplier;
+import model.UserAccountManagement.UserAccount;
 
 /**
  *
  * @author lenovo
  */
 public class MarketingWorkAreaJPanel extends javax.swing.JPanel {
-
     /**
      * Creates new form MarketingWorkAreaJPanel
      */
     JPanel userProcessContainer;
     Business business;
-    public MarketingWorkAreaJPanel(JPanel userProcessContainer, Business b) {
+    UserAccount user;
+    public MarketingWorkAreaJPanel(JPanel userProcessContainer, Business b, UserAccount user) {
         initComponents();
         this.business = b;
         this.userProcessContainer = userProcessContainer;
+        this.user = user;
+        lblHeading.setText("Welcome " + this.user.getPersonId());
         populateCombo();
         populateProductTable();
+        lblProductSelected.setText("Please select product to show intelligence");
+        lblPriceToPerformance.setText("");
+        lblSalesAboveTarget.setText("");
+        lblSalesBelowTarget.setText("");
     }
     private void populateCombo() {
         cmbSupplier.removeAllItems();
@@ -86,7 +94,7 @@ public class MarketingWorkAreaJPanel extends javax.swing.JPanel {
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         btnLogout = new javax.swing.JToggleButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblHeading = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnProductDetails = new javax.swing.JButton();
         lblSupplier = new javax.swing.JLabel();
@@ -96,23 +104,36 @@ public class MarketingWorkAreaJPanel extends javax.swing.JPanel {
         lblProductCatalogue = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProductCatalog = new javax.swing.JTable();
+        BusinessIntelligenceJPanel = new javax.swing.JPanel();
+        lblBusinessIntelligence = new javax.swing.JLabel();
+        lblProductSelected = new javax.swing.JLabel();
+        lblSalesBelowTarget = new javax.swing.JLabel();
+        lblSalesAboveTarget = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        lblPriceToPerformance = new javax.swing.JLabel();
 
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 50));
 
         btnLogout.setText("Log out ");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setText("Welcome to the dashboard");
+        lblHeading.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblHeading.setText("Welcome User");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(219, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(158, 158, 158)
+                .addContainerGap(249, Short.MAX_VALUE)
+                .addComponent(lblHeading)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addContainerGap())
         );
@@ -121,9 +142,9 @@ public class MarketingWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(lblHeading)
                     .addComponent(btnLogout))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jSplitPane1.setTopComponent(jPanel1);
@@ -172,27 +193,100 @@ public class MarketingWorkAreaJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tblProductCatalog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ShowbusinessIntelligence(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblProductCatalog);
+
+        BusinessIntelligenceJPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        BusinessIntelligenceJPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BusinessIntelligenceJPanelMouseClicked(evt);
+            }
+        });
+
+        lblBusinessIntelligence.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblBusinessIntelligence.setText("Business Intelligence");
+
+        lblProductSelected.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblProductSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblProductSelected.setText("Product selected :");
+
+        lblSalesBelowTarget.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblSalesBelowTarget.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSalesBelowTarget.setText("Number of sales below target :");
+
+        lblSalesAboveTarget.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblSalesAboveTarget.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSalesAboveTarget.setText("Number of sales above target :");
+
+        lblPriceToPerformance.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblPriceToPerformance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPriceToPerformance.setText("Price to performance :");
+
+        javax.swing.GroupLayout BusinessIntelligenceJPanelLayout = new javax.swing.GroupLayout(BusinessIntelligenceJPanel);
+        BusinessIntelligenceJPanel.setLayout(BusinessIntelligenceJPanelLayout);
+        BusinessIntelligenceJPanelLayout.setHorizontalGroup(
+            BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
+            .addGroup(BusinessIntelligenceJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblBusinessIntelligence)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BusinessIntelligenceJPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSalesBelowTarget)
+                    .addComponent(lblSalesAboveTarget)
+                    .addComponent(lblPriceToPerformance)
+                    .addComponent(lblProductSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        BusinessIntelligenceJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblPriceToPerformance, lblProductSelected, lblSalesAboveTarget, lblSalesBelowTarget});
+
+        BusinessIntelligenceJPanelLayout.setVerticalGroup(
+            BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BusinessIntelligenceJPanelLayout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(lblBusinessIntelligence)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(lblProductSelected)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblPriceToPerformance)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblSalesAboveTarget)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblSalesBelowTarget)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblProductCatalogue)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSearchProduct))
-                    .addComponent(btnProductDetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(36, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblProductCatalogue)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(lblSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(120, 120, 120)
+                            .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnSearchProduct)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(BusinessIntelligenceJPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnProductDetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,10 +300,12 @@ public class MarketingWorkAreaJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblProductCatalogue)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnProductDetails)
-                .addGap(30, 30, 30))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(BusinessIntelligenceJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -218,11 +314,11 @@ public class MarketingWorkAreaJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -253,18 +349,52 @@ public class MarketingWorkAreaJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnSearchProductActionPerformed
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void ShowbusinessIntelligence(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ShowbusinessIntelligence
+        int selectedRow = tblProductCatalog.getSelectedRow();
+
+        if (selectedRow < 0){
+            lblProductSelected.setText("Please select product to show intelligence");
+            lblPriceToPerformance.setText("");
+            lblSalesAboveTarget.setText("");
+            lblSalesBelowTarget.setText("");
+            return;
+        }
+        Product product = (Product) tblProductCatalog.getValueAt(selectedRow, 0);
+        lblProductSelected.setText("Product selected : " + product);
+        lblPriceToPerformance.setText("Price to performance : " + String.valueOf(product.getOrderPricePerformance()));
+        lblSalesAboveTarget.setText("Number of sales above target : " + String.valueOf(product.getNumberOfProductSalesAboveTarget()));
+        lblSalesBelowTarget.setText("Number of sales below target : " + String.valueOf(product.getNumberOfProductSalesBelowTarget()));
+    }//GEN-LAST:event_ShowbusinessIntelligence
+
+    private void BusinessIntelligenceJPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BusinessIntelligenceJPanelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BusinessIntelligenceJPanelMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BusinessIntelligenceJPanel;
     private javax.swing.JToggleButton btnLogout;
     private javax.swing.JButton btnProductDetails;
     private javax.swing.JButton btnSearchProduct;
     private javax.swing.JComboBox cmbSupplier;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JLabel lblBusinessIntelligence;
+    private javax.swing.JLabel lblHeading;
+    private javax.swing.JLabel lblPriceToPerformance;
     private javax.swing.JLabel lblProductCatalogue;
+    private javax.swing.JLabel lblProductSelected;
+    private javax.swing.JLabel lblSalesAboveTarget;
+    private javax.swing.JLabel lblSalesBelowTarget;
     private javax.swing.JLabel lblSupplier;
     private javax.swing.JTable tblProductCatalog;
     private javax.swing.JTextField txtSearch;

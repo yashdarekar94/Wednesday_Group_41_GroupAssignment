@@ -8,7 +8,7 @@ import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Business.Business;
 import model.UserAccountManagement.UserAccount;
-import Marketing.MarketingWorkAreaJPanel;
+import ui.Marketing.MarketingWorkAreaJPanel;
 
 /**
  *

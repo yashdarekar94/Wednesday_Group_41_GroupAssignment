@@ -48,81 +48,82 @@ public class ConfigureABusiness {
     // Getting product catalog for supplier 1
     ProductCatalog prodCatalog1 = supplier1.getProductCatalog();
     // Creating products and adding it in product catalog
-    Product supp1Prod1 = prodCatalog1.newProduct(100, 200, 150);
-    Product supp1Prod2 = prodCatalog1.newProduct(150, 200, 175);
-    Product supp1Prod3 = prodCatalog1.newProduct(200, 250, 230);
-    Product supp1Prod4 = prodCatalog1.newProduct(145, 200, 158);
-    Product supp1Prod5 = prodCatalog1.newProduct(200, 300, 240);
-    Product supp1Prod6 = prodCatalog1.newProduct(100, 300, 210);
-    Product supp1Prod7 = prodCatalog1.newProduct(70, 150, 110);
-    Product supp1Prod8 = prodCatalog1.newProduct(45, 100, 60);
-    Product supp1Prod9 = prodCatalog1.newProduct(400, 700, 650);
-    Product supp1Prod10 = prodCatalog1.newProduct(600, 900, 750);
-    // Getting product catalog for supplier 2
+    // Supplier 1
+    Product supp1Prod1 = prodCatalog1.newProduct("Laptop", 100, 200, 150);
+    Product supp1Prod2 = prodCatalog1.newProduct("Smartphone", 150, 200, 175);
+    Product supp1Prod3 = prodCatalog1.newProduct("Tablet", 200, 250, 230);
+    Product supp1Prod4 = prodCatalog1.newProduct("Headphones", 145, 200, 158);
+    Product supp1Prod5 = prodCatalog1.newProduct("Monitor", 200, 300, 240);
+    Product supp1Prod6 = prodCatalog1.newProduct("Keyboard", 100, 300, 210);
+    Product supp1Prod7 = prodCatalog1.newProduct("Mouse", 70, 150, 110);
+    Product supp1Prod8 = prodCatalog1.newProduct("Printer", 45, 100, 60);
+    Product supp1Prod9 = prodCatalog1.newProduct("Camera", 400, 700, 650);
+    Product supp1Prod10 = prodCatalog1.newProduct("Smartwatch", 600, 900, 750);
+
+    // Supplier 2
     ProductCatalog prodCatalog2 = supplier2.getProductCatalog();
-    // Creating products and adding it in product catalog
-    Product supp2Prod1 = prodCatalog2.newProduct(100, 200, 150);
-    Product supp2Prod2 = prodCatalog2.newProduct(150, 200, 175);
-    Product supp2Prod3 = prodCatalog2.newProduct(200, 250, 230);
-    Product supp2Prod4 = prodCatalog2.newProduct(145, 200, 158);
-    Product supp2Prod5 = prodCatalog2.newProduct(200, 300, 240);
-    Product supp2Prod6 = prodCatalog2.newProduct(100, 300, 210);
-    Product supp2Prod7 = prodCatalog2.newProduct(70, 150, 110);
-    Product supp2Prod8 = prodCatalog2.newProduct(45, 100, 60);
-    Product supp2Prod9 = prodCatalog2.newProduct(400, 700, 650);
-    Product supp2Prod10 = prodCatalog2.newProduct(600, 900, 750);
-    // Getting product catalog for supplier 3
+    Product supp2Prod1 = prodCatalog2.newProduct("Laptop", 100, 200, 150);
+    Product supp2Prod2 = prodCatalog2.newProduct("Smartphone", 150, 200, 175);
+    Product supp2Prod3 = prodCatalog2.newProduct("Tablet", 200, 250, 230);
+    Product supp2Prod4 = prodCatalog2.newProduct("Headphones", 145, 200, 158);
+    Product supp2Prod5 = prodCatalog2.newProduct("Monitor", 200, 300, 240);
+    Product supp2Prod6 = prodCatalog2.newProduct("Keyboard", 100, 300, 210);
+    Product supp2Prod7 = prodCatalog2.newProduct("Mouse", 70, 150, 110);
+    Product supp2Prod8 = prodCatalog2.newProduct("Printer", 45, 100, 60);
+    Product supp2Prod9 = prodCatalog2.newProduct("Camera", 400, 700, 650);
+    Product supp2Prod10 = prodCatalog2.newProduct("Smartwatch", 600, 900, 750);
+
+    // Supplier 3
     ProductCatalog prodCatalog3 = supplier3.getProductCatalog();
-    // Creating products and adding it in product catalog
-    Product supp3Prod1 = prodCatalog3.newProduct(100, 200, 150);
-    Product supp3Prod2 = prodCatalog3.newProduct(150, 200, 175);
-    Product supp3Prod3 = prodCatalog3.newProduct(200, 250, 230);
-    Product supp3Prod4 = prodCatalog3.newProduct(145, 200, 158);
-    Product supp3Prod5 = prodCatalog3.newProduct(200, 300, 240);
-    Product supp3Prod6 = prodCatalog3.newProduct(100, 300, 210);
-    Product supp3Prod7 = prodCatalog3.newProduct(70, 150, 110);
-    Product supp3Prod8 = prodCatalog3.newProduct(45, 100, 60);
-    Product supp3Prod9 = prodCatalog3.newProduct(400, 700, 650);
-    Product supp3Prod10 = prodCatalog3.newProduct(600, 900, 750);
-    // Getting product catalog for supplier 4
+    Product supp3Prod1 = prodCatalog3.newProduct("Laptop", 100, 200, 150);
+    Product supp3Prod2 = prodCatalog3.newProduct("Smartphone", 150, 200, 175);
+    Product supp3Prod3 = prodCatalog3.newProduct("Tablet", 200, 250, 230);
+    Product supp3Prod4 = prodCatalog3.newProduct("Headphones", 145, 200, 158);
+    Product supp3Prod5 = prodCatalog3.newProduct("Monitor", 200, 300, 240);
+    Product supp3Prod6 = prodCatalog3.newProduct("Keyboard", 100, 300, 210);
+    Product supp3Prod7 = prodCatalog3.newProduct("Mouse", 70, 150, 110);
+    Product supp3Prod8 = prodCatalog3.newProduct("Printer", 45, 100, 60);
+    Product supp3Prod9 = prodCatalog3.newProduct("Camera", 400, 700, 650);
+    Product supp3Prod10 = prodCatalog3.newProduct("Smartwatch", 600, 900, 750);
+
+    // Supplier 4
     ProductCatalog prodCatalog4 = supplier4.getProductCatalog();
-    // Creating products and adding it in product catalog
-    Product supp4Prod1 = prodCatalog4.newProduct(100, 200, 150);
-    Product supp4Prod2 = prodCatalog4.newProduct(150, 200, 175);
-    Product supp4Prod3 = prodCatalog4.newProduct(200, 250, 230);
-    Product supp4Prod4 = prodCatalog4.newProduct(145, 200, 158);
-    Product supp4Prod5 = prodCatalog4.newProduct(200, 300, 240);
-    Product supp4Prod6 = prodCatalog4.newProduct(100, 300, 210);
-    Product supp4Prod7 = prodCatalog4.newProduct(70, 150, 110);
-    Product supp4Prod8 = prodCatalog4.newProduct(45, 100, 60);
-    Product supp4Prod9 = prodCatalog4.newProduct(400, 700, 650);
-    Product supp4Prod10 = prodCatalog4.newProduct(600, 900, 750);
-    // Getting product catalog for supplier 5
+    Product supp4Prod1 = prodCatalog4.newProduct("Laptop", 100, 200, 150);
+    Product supp4Prod2 = prodCatalog4.newProduct("Smartphone", 150, 200, 175);
+    Product supp4Prod3 = prodCatalog4.newProduct("Tablet", 200, 250, 230);
+    Product supp4Prod4 = prodCatalog4.newProduct("Headphones", 145, 200, 158);
+    Product supp4Prod5 = prodCatalog4.newProduct("Monitor", 200, 300, 240);
+    Product supp4Prod6 = prodCatalog4.newProduct("Keyboard", 100, 300, 210);
+    Product supp4Prod7 = prodCatalog4.newProduct("Mouse", 70, 150, 110);
+    Product supp4Prod8 = prodCatalog4.newProduct("Printer", 45, 100, 60);
+    Product supp4Prod9 = prodCatalog4.newProduct("Camera", 400, 700, 650);
+    Product supp4Prod10 = prodCatalog4.newProduct("Smartwatch", 600, 900, 750);
+
+    // Supplier 5
     ProductCatalog prodCatalog5 = supplier5.getProductCatalog();
-    // Creating products and adding it in product catalog
-    Product supp5Prod1 = prodCatalog5.newProduct(100, 200, 150);
-    Product supp5Prod2 = prodCatalog5.newProduct(150, 200, 175);
-    Product supp5Prod3 = prodCatalog5.newProduct(200, 250, 230);
-    Product supp5Prod4 = prodCatalog5.newProduct(145, 200, 158);
-    Product supp5Prod5 = prodCatalog5.newProduct(200, 300, 240);
-    Product supp5Prod6 = prodCatalog5.newProduct(100, 300, 210);
-    Product supp5Prod7 = prodCatalog5.newProduct(70, 150, 110);
-    Product supp5Prod8 = prodCatalog5.newProduct(45, 100, 60);
-    Product supp5Prod9 = prodCatalog5.newProduct(400, 700, 650);
-    Product supp5Prod10 = prodCatalog5.newProduct(600, 900, 750);
-    // Getting product catalog for supplier 6
+    Product supp5Prod1 = prodCatalog5.newProduct("Laptop", 100, 200, 150);
+    Product supp5Prod2 = prodCatalog5.newProduct("Smartphone", 150, 200, 175);
+    Product supp5Prod3 = prodCatalog5.newProduct("Tablet", 200, 250, 230);
+    Product supp5Prod4 = prodCatalog5.newProduct("Headphones", 145, 200, 158);
+    Product supp5Prod5 = prodCatalog5.newProduct("Monitor", 200, 300, 240);
+    Product supp5Prod6 = prodCatalog5.newProduct("Keyboard", 100, 300, 210);
+    Product supp5Prod7 = prodCatalog5.newProduct("Mouse", 70, 150, 110);
+    Product supp5Prod8 = prodCatalog5.newProduct("Printer", 45, 100, 60);
+    Product supp5Prod9 = prodCatalog5.newProduct("Camera", 400, 700, 650);
+    Product supp5Prod10 = prodCatalog5.newProduct("Smartwatch", 600, 900, 750);
+
+    // Supplier 6
     ProductCatalog prodCatalog6 = supplier6.getProductCatalog();
-    // Creating products and adding it in product catalog
-    Product supp6Prod1 = prodCatalog6.newProduct(100, 200, 150);
-    Product supp6Prod2 = prodCatalog6.newProduct(150, 200, 175);
-    Product supp6Prod3 = prodCatalog6.newProduct(200, 250, 230);
-    Product supp6Prod4 = prodCatalog6.newProduct(145, 200, 158);
-    Product supp6Prod5 = prodCatalog6.newProduct(200, 300, 240);
-    Product supp6Prod6 = prodCatalog6.newProduct(100, 300, 210);
-    Product supp6Prod7 = prodCatalog6.newProduct(70, 150, 110);
-    Product supp6Prod8 = prodCatalog6.newProduct(45, 100, 60);
-    Product supp6Prod9 = prodCatalog6.newProduct(400, 700, 650);
-    Product supp6Prod10 = prodCatalog6.newProduct(600, 900, 750);
+    Product supp6Prod1 = prodCatalog6.newProduct("Laptop", 100, 200, 150);
+    Product supp6Prod2 = prodCatalog6.newProduct("Smartphone", 150, 200, 175);
+    Product supp6Prod3 = prodCatalog6.newProduct("Tablet", 200, 250, 230);
+    Product supp6Prod4 = prodCatalog6.newProduct("Headphones", 145, 200, 158);
+    Product supp6Prod5 = prodCatalog6.newProduct("Monitor", 200, 300, 240);
+    Product supp6Prod6 = prodCatalog6.newProduct("Keyboard", 100, 300, 210);
+    Product supp6Prod7 = prodCatalog6.newProduct("Mouse", 70, 150, 110);
+    Product supp6Prod8 = prodCatalog6.newProduct("Printer", 45, 100, 60);
+    Product supp6Prod9 = prodCatalog6.newProduct("Camera", 400, 700, 650);
+    Product supp6Prod10 = prodCatalog6.newProduct("Smartwatch", 600, 900, 750);
     // Getting person directory
     PersonDirectory personDir = business.getPersonDirectory();
     // Creating and adding persons to the person directory

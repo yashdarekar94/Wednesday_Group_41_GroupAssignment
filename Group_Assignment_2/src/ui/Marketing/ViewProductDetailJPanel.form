@@ -175,7 +175,7 @@
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblBefore" linkSize="3" alignment="0" min="-2" pref="301" max="-2" attributes="0"/>
                       <Component id="lblActualSalesRevenueBefore" linkSize="2" alignment="0" min="-2" pref="301" max="-2" attributes="0"/>
@@ -184,9 +184,9 @@
                       <Component id="lblSalesBelowTargetBefore" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="lblPriceToPerformanceBefore" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jSeparator2" min="-2" pref="20" max="-2" attributes="0"/>
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblAfter" linkSize="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblActualSalesRevenueAfter" linkSize="2" min="-2" max="-2" attributes="0"/>
@@ -195,7 +195,7 @@
                       <Component id="lblSalesBelowTargetAfter" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="lblSalesAboveTargetAfter" linkSize="2" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -236,15 +236,10 @@
                                   <Component id="lblSalesAboveTargetBefore" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lblSalesBelowTargetAfter" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lblSalesBelowTargetBefore" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="lblSalesBelowTargetAfter" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblSalesBelowTargetBefore" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jSeparator2" min="-2" pref="186" max="-2" attributes="0"/>

@@ -10,6 +10,7 @@ import model.ProductManagement.ProductSummary;
 import model.ProductManagement.Product;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
  *
@@ -354,10 +355,30 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backButton1ActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        product.setName(txtProdName.getText());
-        product.updateProduct(Integer.parseInt(txtFloorPrice.getText()), Integer.parseInt(txtCeliPrice.getText()), Integer.parseInt(txtPrice.getText()));
-        refreshAfter(true);
-        
+        String productName = txtProdName.getText();
+        if (productName.isBlank()){
+            JOptionPane.showMessageDialog(this, "Product name cannot be blank", "Warning", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        int floorPrice;
+        int ceilPrice;
+        int targetPrice;
+        try{
+            floorPrice = Integer.parseInt(txtFloorPrice.getText());
+            ceilPrice = Integer.parseInt(txtCeliPrice.getText());
+            targetPrice = Integer.parseInt(txtPrice.getText());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Check pricing fields floor, ceiling and target.", "Warning", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if ((floorPrice <= targetPrice) && (targetPrice <= ceilPrice)) {
+            product.setName(productName);
+            product.updateProduct(floorPrice, ceilPrice, targetPrice);
+            refreshAfter(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "Target price should be between floor price and ceiling price.", "Warning", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void BusinessIntelligenceJPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BusinessIntelligenceJPanelMouseClicked

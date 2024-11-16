@@ -184,6 +184,14 @@ public class ConfigureABusiness {
             }
         }
     }
+    
+    Person marketingPerson = personDir.newPerson("Marketing Person");
+    EmployeeDirectory employeeDir = business.getEmployeeDirectory();
+    EmployeeProfile employeeProfile = employeeDir.newEmployeeProfile(marketingPerson, "Marketing");
+    UserAccountDirectory userAccountDir = business.getUserAccountDirectory();
+    String userName = "Marketing";
+    String password = "";
+    userAccountDir.newUserAccount(employeeProfile, userName, password);
 
     return business;
   }

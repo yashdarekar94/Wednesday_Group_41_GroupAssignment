@@ -170,6 +170,29 @@ public class ConfigureABusiness {
     CustomerProfile customer18 = customerDir.newCustomerProfile(person18);
     CustomerProfile customer19 = customerDir.newCustomerProfile(person19);
     CustomerProfile customer20 = customerDir.newCustomerProfile(person20);
+    // Creating persons
+    Person person21 = personDir.newPerson("Sales person 1");
+    Person person22 = personDir.newPerson("Sales person 2");
+    Person person23 = personDir.newPerson("Sales person 3");
+    Person person24 = personDir.newPerson("Sales person 4");
+    Person person25 = personDir.newPerson("Sales person 5");
+    Person person26 = personDir.newPerson("Sales person 6");
+    Person person27 = personDir.newPerson("Sales person 7");
+    Person person28 = personDir.newPerson("Sales person 8");
+    Person person29 = personDir.newPerson("Sales person 9");
+    Person person30 = personDir.newPerson("Sales person 10");
+    // Getting sales directory
+    SalesPersonDirectory salesPersonDir = business.getSalesPersonDirectory();
+    salesPersonDir.newSalesPersonProfile(person21);
+    salesPersonDir.newSalesPersonProfile(person22);
+    salesPersonDir.newSalesPersonProfile(person23);
+    salesPersonDir.newSalesPersonProfile(person24);
+    salesPersonDir.newSalesPersonProfile(person25);
+    salesPersonDir.newSalesPersonProfile(person26);
+    salesPersonDir.newSalesPersonProfile(person27);
+    salesPersonDir.newSalesPersonProfile(person28);
+    salesPersonDir.newSalesPersonProfile(person29);
+    salesPersonDir.newSalesPersonProfile(person30);
     // Getting master order list
     MasterOrderList masterOrderList = business.getMasterOrderList();
     // Importing Random to randomly set actual prices of products
@@ -180,7 +203,8 @@ public class ConfigureABusiness {
             for(CustomerProfile c : customerDir.getCustomerlist()){
                 int min = p.getFloorPrice();
                 int max = p.getCeilingPrice();
-                Order o = masterOrderList.newOrder(c);
+                int salesPersonMax = salesPersonDir.getSalespersonlist().size();
+                Order o = masterOrderList.newOrder(c, salesPersonDir.getSalespersonlist().get(random.nextInt(salesPersonMax)));
                 o.newOrderItem(p, random.nextInt(max-min+1)+min, 1);
             }
         }

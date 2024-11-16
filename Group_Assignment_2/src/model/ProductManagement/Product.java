@@ -85,6 +85,13 @@ public class Product {
         }
         return sum;
     }
+    public int getSalesVolumeTarget() {
+        int sum = 0;
+        for (OrderItem oi : orderitems) {
+            sum = sum + oi.getOrderItemTargetTotal();     //positive and negative values       
+        }
+        return sum;
+    }
     public void setName(String n){
         name = n;
     }

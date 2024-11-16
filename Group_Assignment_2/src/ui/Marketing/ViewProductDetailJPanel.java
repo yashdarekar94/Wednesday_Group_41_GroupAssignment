@@ -16,13 +16,11 @@ import javax.swing.JPanel;
  * @author Rushabh
  */
 public class ViewProductDetailJPanel extends javax.swing.JPanel {
-
     JPanel userProcessContainer;
     Product product;
     int revertFloor;
     int revertTarget;
     int revertCeli;
-    /** Creates new form CreateProductJPanel */
     public ViewProductDetailJPanel(JPanel userProcessContainer, Product product) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -35,14 +33,32 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
         txtPrice.setText(String.valueOf(product.getTargetPrice()));
         txtCeliPrice.setText(String.valueOf(product.getCeilingPrice()));
         refresh();
+        refreshAfter(false);
     }
     
     
     private void refresh(){
-        lblProductSelected.setText("Product selected : " + product);
-        lblPriceToPerformance.setText("Price to performance : " + String.valueOf(product.getOrderPricePerformance()));
-        lblSalesAboveTarget.setText("Number of sales above target : " + String.valueOf(product.getNumberOfProductSalesAboveTarget()));
-        lblSalesBelowTarget.setText("Number of sales below target : " + String.valueOf(product.getNumberOfProductSalesBelowTarget()));
+        lblActualSalesRevenueBefore.setText("Sales Revenue (Actual Price) : " + String.valueOf(product.getSalesVolume()));
+        lblTargetSalesRevenueBefore.setText("Sales Revenue (Target Price) :" + String.valueOf(product.getSalesVolumeTarget()));
+        lblPriceToPerformanceBefore.setText("Price to performance : " + String.valueOf(product.getOrderPricePerformance()));
+        lblSalesAboveTargetBefore.setText("Number of sales above target : " + String.valueOf(product.getNumberOfProductSalesAboveTarget()));
+        lblSalesBelowTargetBefore.setText("Number of sales below target : " + String.valueOf(product.getNumberOfProductSalesBelowTarget()));
+    }
+    
+    private void refreshAfter(boolean simulateClicked){
+        if (simulateClicked){
+            lblActualSalesRevenueAfter.setText("Sales Revenue (Actual Price) : " + String.valueOf(product.getSalesVolume()));
+            lblTargetSalesRevenueAfter.setText("Sales Revenue (Target Price) :" + String.valueOf(product.getSalesVolumeTarget()));
+            lblPriceToPerformanceAfter.setText("Price to performance : " + String.valueOf(product.getOrderPricePerformance()));
+            lblSalesAboveTargetAfter.setText("Number of sales above target : " + String.valueOf(product.getNumberOfProductSalesAboveTarget()));
+            lblSalesBelowTargetAfter.setText("Number of sales below target : " + String.valueOf(product.getNumberOfProductSalesBelowTarget()));
+        } else{
+            lblActualSalesRevenueAfter.setText("Please click save and simulate to display");
+            lblTargetSalesRevenueAfter.setText("");
+            lblPriceToPerformanceAfter.setText("");
+            lblSalesAboveTargetAfter.setText("");
+            lblSalesBelowTargetAfter.setText("");
+        }
     }
     
     /** This method is called from within the constructor to
@@ -66,11 +82,20 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
         btnSave = new javax.swing.JButton();
         BusinessIntelligenceJPanel = new javax.swing.JPanel();
         lblBusinessIntelligence = new javax.swing.JLabel();
-        lblProductSelected = new javax.swing.JLabel();
-        lblSalesBelowTarget = new javax.swing.JLabel();
-        lblSalesAboveTarget = new javax.swing.JLabel();
+        lblActualSalesRevenueBefore = new javax.swing.JLabel();
+        lblSalesBelowTargetBefore = new javax.swing.JLabel();
+        lblSalesAboveTargetBefore = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        lblPriceToPerformance = new javax.swing.JLabel();
+        lblPriceToPerformanceBefore = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        lblActualSalesRevenueAfter = new javax.swing.JLabel();
+        lblPriceToPerformanceAfter = new javax.swing.JLabel();
+        lblSalesAboveTargetAfter = new javax.swing.JLabel();
+        lblSalesBelowTargetAfter = new javax.swing.JLabel();
+        lblBefore = new javax.swing.JLabel();
+        lblAfter = new javax.swing.JLabel();
+        lblTargetSalesRevenueBefore = new javax.swing.JLabel();
+        lblTargetSalesRevenueAfter = new javax.swing.JLabel();
         btnRevert = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(650, 600));
@@ -109,23 +134,57 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
         });
 
         lblBusinessIntelligence.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        lblBusinessIntelligence.setText("Business Intelligence");
+        lblBusinessIntelligence.setText("Product Performance Report");
 
-        lblProductSelected.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        lblProductSelected.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblProductSelected.setText("Product selected :");
+        lblActualSalesRevenueBefore.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblActualSalesRevenueBefore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblActualSalesRevenueBefore.setText("Sales Revenue (Actual Price) :");
 
-        lblSalesBelowTarget.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        lblSalesBelowTarget.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSalesBelowTarget.setText("Number of sales below target :");
+        lblSalesBelowTargetBefore.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblSalesBelowTargetBefore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSalesBelowTargetBefore.setText("Number of sales below target :");
 
-        lblSalesAboveTarget.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        lblSalesAboveTarget.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSalesAboveTarget.setText("Number of sales above target :");
+        lblSalesAboveTargetBefore.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblSalesAboveTargetBefore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSalesAboveTargetBefore.setText("Number of sales above target :");
 
-        lblPriceToPerformance.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        lblPriceToPerformance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPriceToPerformance.setText("Price to performance :");
+        lblPriceToPerformanceBefore.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblPriceToPerformanceBefore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPriceToPerformanceBefore.setText("Price to performance :");
+
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        lblActualSalesRevenueAfter.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblActualSalesRevenueAfter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblActualSalesRevenueAfter.setText("Sales Revenue (Actual Price) :");
+
+        lblPriceToPerformanceAfter.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblPriceToPerformanceAfter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPriceToPerformanceAfter.setText("Price to performance :");
+
+        lblSalesAboveTargetAfter.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblSalesAboveTargetAfter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSalesAboveTargetAfter.setText("Number of sales above target :");
+
+        lblSalesBelowTargetAfter.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblSalesBelowTargetAfter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSalesBelowTargetAfter.setText("Number of sales below target :");
+
+        lblBefore.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblBefore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBefore.setText("Before");
+
+        lblAfter.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblAfter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAfter.setText("After");
+
+        lblTargetSalesRevenueBefore.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblTargetSalesRevenueBefore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTargetSalesRevenueBefore.setText("Sales Revenue (Target Price) :");
+
+        lblTargetSalesRevenueAfter.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblTargetSalesRevenueAfter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTargetSalesRevenueAfter.setText("Sales Revenue (Target Price) :");
 
         javax.swing.GroupLayout BusinessIntelligenceJPanelLayout = new javax.swing.GroupLayout(BusinessIntelligenceJPanel);
         BusinessIntelligenceJPanel.setLayout(BusinessIntelligenceJPanelLayout);
@@ -136,31 +195,72 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblBusinessIntelligence)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BusinessIntelligenceJPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(BusinessIntelligenceJPanelLayout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSalesBelowTarget)
-                    .addComponent(lblSalesAboveTarget)
-                    .addComponent(lblPriceToPerformance)
-                    .addComponent(lblProductSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblBefore, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblActualSalesRevenueBefore, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTargetSalesRevenueBefore)
+                    .addComponent(lblSalesAboveTargetBefore)
+                    .addComponent(lblSalesBelowTargetBefore)
+                    .addComponent(lblPriceToPerformanceBefore))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGroup(BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAfter)
+                    .addComponent(lblActualSalesRevenueAfter)
+                    .addComponent(lblTargetSalesRevenueAfter)
+                    .addComponent(lblPriceToPerformanceAfter)
+                    .addComponent(lblSalesBelowTargetAfter)
+                    .addComponent(lblSalesAboveTargetAfter))
+                .addGap(0, 15, Short.MAX_VALUE))
         );
+
+        BusinessIntelligenceJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblActualSalesRevenueAfter, lblActualSalesRevenueBefore, lblPriceToPerformanceAfter, lblPriceToPerformanceBefore, lblSalesAboveTargetAfter, lblSalesAboveTargetBefore, lblSalesBelowTargetAfter, lblSalesBelowTargetBefore, lblTargetSalesRevenueAfter, lblTargetSalesRevenueBefore});
+
+        BusinessIntelligenceJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblAfter, lblBefore});
+
         BusinessIntelligenceJPanelLayout.setVerticalGroup(
             BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BusinessIntelligenceJPanelLayout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblBusinessIntelligence)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(lblProductSelected)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblPriceToPerformance)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblSalesAboveTarget)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblSalesBelowTarget)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addGroup(BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BusinessIntelligenceJPanelLayout.createSequentialGroup()
+                        .addGroup(BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblBefore)
+                            .addComponent(lblAfter))
+                        .addGap(18, 18, 18)
+                        .addGroup(BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblActualSalesRevenueBefore)
+                            .addComponent(lblActualSalesRevenueAfter))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTargetSalesRevenueBefore)
+                            .addComponent(lblTargetSalesRevenueAfter))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(BusinessIntelligenceJPanelLayout.createSequentialGroup()
+                                .addComponent(lblPriceToPerformanceAfter)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblSalesAboveTargetAfter))
+                            .addGroup(BusinessIntelligenceJPanelLayout.createSequentialGroup()
+                                .addComponent(lblPriceToPerformanceBefore)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblSalesAboveTargetBefore)))
+                        .addGroup(BusinessIntelligenceJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(BusinessIntelligenceJPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblSalesBelowTargetAfter))
+                            .addGroup(BusinessIntelligenceJPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblSalesBelowTargetBefore))))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 55, Short.MAX_VALUE))
         );
 
         btnRevert.setText("Revert");
@@ -181,7 +281,7 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(219, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -193,7 +293,7 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
                     .addComponent(txtFloorPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCeliPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(BusinessIntelligenceJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -254,11 +354,9 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backButton1ActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
-        
         product.setName(txtProdName.getText());
         product.updateProduct(Integer.parseInt(txtFloorPrice.getText()), Integer.parseInt(txtCeliPrice.getText()), Integer.parseInt(txtPrice.getText()));
-        refresh();
+        refreshAfter(true);
         
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -273,6 +371,7 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
         txtCeliPrice.setText(String.valueOf(this.revertCeli));
         product.updateProduct(this.revertFloor, this.revertCeli, this.revertTarget);
         refresh();
+        refreshAfter(false);
     }//GEN-LAST:event_btnRevertActionPerformed
     
     
@@ -287,11 +386,20 @@ public class ViewProductDetailJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel lblActualSalesRevenueAfter;
+    private javax.swing.JLabel lblActualSalesRevenueBefore;
+    private javax.swing.JLabel lblAfter;
+    private javax.swing.JLabel lblBefore;
     private javax.swing.JLabel lblBusinessIntelligence;
-    private javax.swing.JLabel lblPriceToPerformance;
-    private javax.swing.JLabel lblProductSelected;
-    private javax.swing.JLabel lblSalesAboveTarget;
-    private javax.swing.JLabel lblSalesBelowTarget;
+    private javax.swing.JLabel lblPriceToPerformanceAfter;
+    private javax.swing.JLabel lblPriceToPerformanceBefore;
+    private javax.swing.JLabel lblSalesAboveTargetAfter;
+    private javax.swing.JLabel lblSalesAboveTargetBefore;
+    private javax.swing.JLabel lblSalesBelowTargetAfter;
+    private javax.swing.JLabel lblSalesBelowTargetBefore;
+    private javax.swing.JLabel lblTargetSalesRevenueAfter;
+    private javax.swing.JLabel lblTargetSalesRevenueBefore;
     private javax.swing.JTextField txtCeliPrice;
     private javax.swing.JTextField txtFloorPrice;
     private javax.swing.JTextField txtPrice;
